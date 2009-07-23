@@ -1,0 +1,101 @@
+ul.ntagsTags {
+	-moz-column-width: 12em;
+	column-width: 12em;
+	list-style-type: none;
+	margin-left: 0;
+}
+
+ul.ntagsTags li {
+	break-inside: avoid;
+}
+
+.nTags label {
+	display: inline;
+	font-weight: normal;
+	white-space: normal;
+}
+
+div.content-navigation-childlist table.list th.name, div.content-edit table.list th.name {
+    width: 50%;
+}
+
+div.content-navigation-childlist table.list th.tags, div.content-edit table.list th.tags {
+	width: 50%;
+}
+
+.nTagsView label, .nTagsEdit label {
+	display: inline;
+	white-space: nowrap;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	padding: 1px;
+	margin-right: 3px;
+
+	font-family: Verdana;
+	font-weight: normal;
+	font-size: 85%;
+}
+
+.nTagsView label input {
+	display: none;
+}
+.nTagsView label {
+	color: rgb(37, 75, 113);
+}
+
+.nTagsEdit table label {
+	color: rgb(138, 138, 133);
+}
+
+.nTagsEdit td.tags label:hover {
+	color: white;
+	background-color: rgb(138, 138, 133);
+}
+
+.nTagsEdit label.checked {
+	color: rgb(37, 75, 113);
+	background-color: rgb(200, 207, 215);
+}
+
+.nTagsEdit td.tags label.checked:hover {
+	color: white;
+	background-color: rgb(45, 83, 122);
+}
+
+.nTagsEdit label input, .nTagsView label input {
+	margin: 0;
+}
+
+#nTagsChildren input.button[disabled],
+.nTags input.button[disabled] {
+	background-image: none;
+	background-color: gray;
+}
+
+#nTagsSave, #nTagsAddTagDiv {
+	display: none;
+}
+
+.ui-state-error {
+	padding: 0.7em;
+	margin: 0.7em;
+}
+
+.ui-icon-alert {
+	float: left; 
+	margin-right: .3em;
+}
+
+td.tags label.new, td.tags label.delete {
+	font-weight: bold;
+}
+
+td.tags label.new {
+	background-color: yellow;
+	color: black;
+}
+
+td.tags label.delete {
+	background-color: red;
+	color: white;
+}

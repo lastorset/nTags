@@ -1,0 +1,4 @@
+<?php /*
+[RegionalSettings]
+TranslationExtensions[]=ntags
+*/ ?>
