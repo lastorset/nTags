@@ -1,18 +1,21 @@
 {* Uncomment if needed
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/jquery-ui-1.7.2.custom.min.js"></script>
 *}
-<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_multitag.js"></script>
 <div class="content-navigation-childlist nTagsView" id="nTagsChildren">
+
 	{if fetch( 'user', 'has_access_to',
        hash( 'module',   'ntags',
              'function', 'multitag') )}
-	<input type="submit" class="button" id="nTagsEditChildren" value="Endre stikkord" />
-		<input type="submit" class="button nTagsEditControls" id="nTagsSave" value="Lagre stikkord" />
+	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_multitag.js"></script>
+	<div class="nTagsEditActivation">
+	<input type="submit" class="button" id="nTagsEditChildren" value="{"Edit tags"|i18n("ntags/admin/view")}" />
+	<input type="submit" class="button nTagsEditControls" id="nTagsSave" value="{"Save tags"|i18n("ntags/admin/view")}" />
+	</div>
 	<div id="nTagsAddTagDiv" class="nTagsEditControls">
-		<input type="submit" class="button nTagsEditControls" id="nTagsAddTag" value="Legg til stikkord" />
+		<input type="submit" class="button nTagsEditControls" id="nTagsAddTag" value="{"Add tags"|i18n("ntags/admin/view")}" />
 		<input type="text" id="nTagsNewTag"/>
 		<input type="checkbox" id="nTagsNewTagChecked"/>
-		<label for="nTagsNewTagChecked">Merk alle med det nye stikkordet</label>
+		<label for="nTagsNewTagChecked">{"Apply the new tag to all items"|i18n("ntags/admin/view")}</label>
 	</div>
 	{/if}
 
