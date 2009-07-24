@@ -228,7 +228,7 @@
     <message>
         <source>Tags</source>
         <comment>Navigation part</comment>
-        <translation>Stikkord</translation>
+        <translation type="obsolete">Stikkord</translation>
     </message>
 </context>
 <context>
