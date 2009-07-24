@@ -20,8 +20,4 @@ $ViewList['multitag_ajax'] = array(
 $FunctionList = array();
 $FunctionList[ 'edit_predefined' ] = array();
 $FunctionList[ 'multitag' ] = array();
-
-// Dummy translations for ezlupdate
-require_once( 'kernel/common/i18n.php' );
-ezi18n( 'kernel/navigationpart', 'Tags', 'Navigation part' )
 ?>
