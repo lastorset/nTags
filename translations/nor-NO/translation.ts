@@ -243,6 +243,25 @@
     </message>
 </context>
 <context>
+    <name>ntags/admin/view</name>
+    <message>
+        <source>Edit tags</source>
+        <translation>Endre stikkord</translation>
+    </message>
+    <message>
+        <source>Save tags</source>
+        <translation>Lagre stikkord</translation>
+    </message>
+    <message>
+        <source>Add tags</source>
+        <translation>Legg til stikkord</translation>
+    </message>
+    <message>
+        <source>Apply the new tag to all items</source>
+        <translation>Merk alle med de nye stikkordene</translation>
+    </message>
+</context>
+<context>
     <name>ntags/content/edit</name>
     <message>
         <source>Show predefined tags</source>
