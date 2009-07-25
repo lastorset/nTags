@@ -260,6 +260,20 @@
         <source>Apply the new tag to all items</source>
         <translation>Merk alle med dei nye stikkorda</translation>
     </message>
+    <message>
+        <source>Filter</source>
+        <comment>command button, imperative form</comment>
+        <translation>Filtrer</translation>
+    </message>
+    <message>
+        <source>Filtered by %tags</source>
+        <translation>Filtrert på %tags</translation>
+    </message>
+    <message>
+        <source>Clear filter</source>
+        <comment>command button, imperative verb phrase</comment>
+        <translation>Ikkje filtrer</translation>
+    </message>
 </context>
 <context>
     <name>ntags/content/edit</name>
