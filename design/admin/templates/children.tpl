@@ -17,13 +17,44 @@
      can_edit=false()
      can_create=false()
      can_copy=false()
-     children_count=fetch( content, list_count, hash( parent_node_id, $node.node_id,
                                                       objectname_filter, $view_parameters.namefilter ) )
-     children=fetch( content, list, hash( parent_node_id, $node.node_id,
+  }
+{if is_set($view_parameters.tags)}
+	{* Check whether selected sort method is supported by keyword fetch function. *}
+	{if array( "class_identifier", "class_name", "modified", "name", "published", "section" )|contains($node.sort_array.0)}
+		{def $sort_by = $node.sort_array}
+	{else}
+		{* Use default sort method. *}
+		{def $sort_by = array( "published", false() )}
+	{/if}
+{def $keyword_nodes=fetch( 'content',  'keyword',
+	 hash( 'alphabet',            $view_parameters.tags|wash(),
+		   'strict_matching',     true(),
+		   'offset',              $view_parameters.offset,
+		   'limit',               $number_of_items,
+		   'parent_node_id',      $node.node_id,
+		   'sort_by',             $sort_by
+	 ) ) 
+	$children_count=fetch( 'content',  'keyword_count',
+	 hash( 'alphabet',            $view_parameters.tags|wash(),
+		   'strict_matching',     true(),
+		   'parent_node_id',      $node.node_id
+	 ) )
+	 $children=array()
+	 $tags=$view_parameters.tags|wash()|trim()
+}
+{foreach $keyword_nodes as $keyword_node}
+	{set $children=$children|append($keyword_node.link_object)}
+{/foreach}
+{else}
+{def $children=fetch( content, list, hash( parent_node_id, $node.node_id,
                                           sort_by, $node.sort_array,
                                           limit, $number_of_items,
                                           offset, $view_parameters.offset,
-                                          objectname_filter, $view_parameters.namefilter ) ) }
+                                          objectname_filter, $view_parameters.namefilter ) ) 
+     children_count=fetch( content, list_count, hash( parent_node_id, $node.node_id,
+										  }
+{/if}
 
 {* DESIGN: Header START *}<div class="box-header"><div class="box-tc"><div class="box-ml"><div class="box-mr"><div class="box-tl"><div class="box-tr">
 
@@ -34,6 +65,17 @@
 {* DESIGN: Header END *}</div></div></div></div></div></div>
 
 {* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
+
+<div class="nTags">
+	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_filter.js"></script>
+	<input type="text" id="nTagsFilterText" name="tags" value="{$view_parameters.tags|wash()}" />
+	<input type="hidden" id="nTagsNodeURL" value={$node.url|ezurl()} />
+	<input type="submit" class="button" id="nTagsFilterSubmit" value="{"Filter"|i18n("ntags/admin/view", "command button, imperative form")}" />
+	{if is_set($view_parameters.tags)}
+		{"Filtered by %tags"|i18n( "ntags/admin/view", , hash( "%tags", concat( "<label class='filter'>", $view_parameters.tags|wash(), "</label>" ) ) ) }
+		<input type="submit" class="button" id="nTagsClearFilter" value="{"Clear filter"|i18n("ntags/admin/view", "command button, imperative verb phrase")}" />
+	{/if}
+</div>
 
 {* If there are children: show list and buttons that belong to the list. *}
 {section show=$children}

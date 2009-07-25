@@ -23,7 +23,7 @@ div.content-navigation-childlist table.list th.tags, div.content-edit table.list
 	width: 50%;
 }
 
-.nTagsView label, .nTagsEdit label {
+.nTagsView label, .nTagsEdit label, .nTags label.filter {
 	display: inline;
 	white-space: nowrap;
 	-moz-border-radius: 2px;
@@ -52,7 +52,7 @@ div.content-navigation-childlist table.list th.tags, div.content-edit table.list
 	background-color: rgb(138, 138, 133);
 }
 
-.nTagsEdit label.checked {
+.nTagsEdit label.checked, .nTags label.filter {
 	color: rgb(37, 75, 113);
 	background-color: rgb(200, 207, 215);
 }
