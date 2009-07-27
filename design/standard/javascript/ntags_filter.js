@@ -13,7 +13,6 @@ nTags.filter.activate = function() {
 
 nTags.filter.clear = function() {
 	var url = $("#nTagsNodeURL").val();
-	alert(url);
 	window.location = url;
 };
 

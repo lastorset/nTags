@@ -17,7 +17,6 @@
      can_edit=false()
      can_create=false()
      can_copy=false()
-                                                      objectname_filter, $view_parameters.namefilter ) )
   }
 {if is_set($view_parameters.tags)}
 	{* Check whether selected sort method is supported by keyword fetch function. *}
@@ -38,7 +37,8 @@
 	$children_count=fetch( 'content',  'keyword_count',
 	 hash( 'alphabet',            $view_parameters.tags|wash(),
 		   'strict_matching',     true(),
-		   'parent_node_id',      $node.node_id
+		   'parent_node_id',      $node.node_id,
+		   'objectname_filter', $view_parameters.namefilter
 	 ) )
 	 $children=array()
 	 $tags=$view_parameters.tags|wash()|trim()
@@ -52,7 +52,9 @@
                                           limit, $number_of_items,
                                           offset, $view_parameters.offset,
                                           objectname_filter, $view_parameters.namefilter ) ) 
-     children_count=fetch( content, list_count, hash( parent_node_id, $node.node_id,
+     $children_count=fetch( content, list_count, hash( parent_node_id, $node.node_id,
+		   'objectname_filter', $view_parameters.namefilter
+		   ) )
 										  }
 {/if}
 
@@ -68,6 +70,7 @@
 
 <div class="nTags">
 	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_filter.js"></script>
+	{"Tag:"|i18n("ntags/admin/view")}
 	<input type="text" id="nTagsFilterText" name="tags" value="{$view_parameters.tags|wash()}" />
 	<input type="hidden" id="nTagsNodeURL" value={$node.url|ezurl()} />
 	<input type="submit" class="button" id="nTagsFilterSubmit" value="{"Filter"|i18n("ntags/admin/view", "command button, imperative form")}" />

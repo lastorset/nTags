@@ -72,14 +72,16 @@
 			{if $attribute.data_type_string|eq( "ezkeyword" )}
 			class="tags" id="nTags_{$attribute.id}">
 			<script type="text/javascript">$("#nTags_{$attribute.id}").data("version", {$nodeContent.current_version});</script>
-				{foreach $attribute.content.keywords as $tag_u}
-					{def $tag=$tag_u|wash()
-					     $tagShort=$tag|wash()|explode(" ")|implode("")|downcase()} {* Remove spaces. *}
-					<label class="checked saved" for="nTags_{$attribute.id}_{$tagShort}">{$tag}
-						<input type="checkbox" checked="checked" id="nTags_{$attribute.id}_{$tagShort}" name="nTags_{$attribute.id}_{$tagShort}" />
-					</label>
-					{undef $tagShort $tag}
-				{/foreach}
+				{if $attribute.content.keywords}
+					{foreach $attribute.content.keywords as $tag_u}
+						{def $tag=$tag_u|wash()
+							 $tagShort=$tag|wash()|explode(" ")|implode("")|downcase()} {* Remove spaces. *}
+						<label class="checked saved" for="nTags_{$attribute.id}_{$tagShort}">{$tag}
+							<input type="checkbox" checked="checked" id="nTags_{$attribute.id}_{$tagShort}" name="nTags_{$attribute.id}_{$tagShort}" />
+						</label>
+						{undef $tagShort $tag}
+					{/foreach}
+				{/if}
 				{break}
 			{/if}
 		{/foreach}
