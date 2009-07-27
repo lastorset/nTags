@@ -263,16 +263,20 @@
     <message>
         <source>Filter</source>
         <comment>command button, imperative form</comment>
-        <translation type="unfinished">Filtrer</translation>
+        <translation>Filtrer</translation>
     </message>
     <message>
         <source>Filtered by %tags</source>
-        <translation type="unfinished">Filtrert på %tags</translation>
+        <translation>Filtrert på %tags</translation>
     </message>
     <message>
         <source>Clear filter</source>
         <comment>command button, imperative verb phrase</comment>
-        <translation type="unfinished">Ikke filtrer</translation>
+        <translation>Ikke filtrer</translation>
+    </message>
+    <message>
+        <source>Tag:</source>
+        <translation type="unfinished">Stikkord:</translation>
     </message>
 </context>
 <context>

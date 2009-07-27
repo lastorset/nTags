@@ -274,6 +274,10 @@
         <comment>command button, imperative verb phrase</comment>
         <translation>Ikkje filtrer</translation>
     </message>
+    <message>
+        <source>Tag:</source>
+        <translation>Stikkord:</translation>
+    </message>
 </context>
 <context>
     <name>ntags/content/edit</name>
