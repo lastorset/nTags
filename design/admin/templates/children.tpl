@@ -68,9 +68,9 @@
 
 {* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
 
-<div class="nTags">
+<div class="nTags nTagsFilter">
 	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_filter.js"></script>
-	{"Tag:"|i18n("ntags/admin/view")}
+	<label for="nTagsFilterText">{"Tag:"|i18n("ntags/admin/view")}</label>
 	<input type="text" id="nTagsFilterText" name="tags" value="{$view_parameters.tags|wash()}" />
 	<input type="hidden" id="nTagsNodeURL" value={$node.url|ezurl()} />
 	<input type="submit" class="button" id="nTagsFilterSubmit" value="{"Filter"|i18n("ntags/admin/view", "command button, imperative form")}" />

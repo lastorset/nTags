@@ -99,3 +99,7 @@ td.tags label.delete {
 	background-color: red;
 	color: white;
 }
+
+.nTagsFilter {
+	padding: 0.2em;
+}
