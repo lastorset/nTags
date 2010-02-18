@@ -19,4 +19,15 @@
         <translation>Remove selected tags</translation>
     </message>
 </context>
+<context>
+    <name>ntags/admin/view</name>
+    <message>
+        <source>Add tags</source>
+        <translation>Add new tags:</translation>
+    </message>
+    <message>
+        <source>Apply the new tag to all items</source>
+        <translation>Apply the new tag to all items in this list</translation>
+    </message>
+</context>
 </TS>

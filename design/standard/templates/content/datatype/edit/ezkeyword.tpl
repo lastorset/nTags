@@ -35,6 +35,7 @@ onchange="toggleThese = $('#{$attr_id}_maintags'); if (this.checked) toggleThese
 	{/if}
 	{def $tagShort=$tagFull|explode(" ")|implode("")|downcase()} {* Remove spaces. *}
 	<input type="checkbox" {$checked} id="tag_{$tagShort}" onchange="nTags.edit.setTag('{$tagFull}', this, '{$attr_id}_free', '{$attr_id}')"/><label for="tag_{$tagShort}">{$tagFull}</label>
+	{undef $checked $tagShort}
 </li>
 {/foreach}
 </div>
