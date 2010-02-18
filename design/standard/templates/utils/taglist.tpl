@@ -37,7 +37,7 @@
 
 <tr class="{$rowClass}">
 {* Checkbox *}
-<td><input type="checkbox" name="RemoveTagList[]" id="tag_{$predef}" value="{$predef}"><span class="sortableArrow ui-icon ui-icon-arrowthick-2-n-s"></span></td>
+<td><input type="checkbox" name="RemoveTagList[]" id="tag_{$predef}" value="{$predef}" /><span class="sortableArrow ui-icon ui-icon-arrowthick-2-n-s"></span></td>
 
 {* Tag *}
 <td class="nTags"><label class="tag" for="tag_{$predef}">{$predef}</label></td>

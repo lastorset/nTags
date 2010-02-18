@@ -60,10 +60,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remove selected</source>
-        <translation type="unfinished">Fjern valgte stikkord</translation>
-    </message>
-    <message>
         <source>Remove the selected items from the list above.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -254,11 +250,11 @@
     </message>
     <message>
         <source>Add tags</source>
-        <translation>Legg til stikkord</translation>
+        <translation>Legg til nye stikkord:</translation>
     </message>
     <message>
         <source>Apply the new tag to all items</source>
-        <translation>Merk alle med de nye stikkordene</translation>
+        <translation>Merk alle oppføringene i denne listen med de nye stikkordene</translation>
     </message>
     <message>
         <source>Filter</source>

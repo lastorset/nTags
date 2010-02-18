@@ -25,7 +25,7 @@ onchange="toggleThese = $('#{$attr_id}_maintags'); if (this.checked) toggleThese
 
 {* Checkboxes for each main tag. *}
 <ul id="{$attr_id}_maintags" class="ntagsTags ntagsPopup">
-{foreach $taglist as $tagFull }
+{foreach $taglist|sort as $tagFull }
 <li>
 	{if $storedTags|contains( $tagFull )}
 		{def $checked="checked='checked'"}
