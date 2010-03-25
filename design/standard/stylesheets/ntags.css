@@ -1,5 +1,6 @@
 ul.ntagsTags {
 	-moz-column-width: 12em;
+	-webkit-column-width: 12em;
 	column-width: 12em;
 	list-style-type: none;
 	margin-left: 0;
