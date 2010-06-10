@@ -133,7 +133,6 @@ class nTagsFunctions
         }
 
         $sqlOwnerString = is_numeric( $owner ) ? "AND ezcontentobject.owner_id = '$owner'" : '';
-		/* DEBUG: why isn't this working? 
 		if ( is_numeric( $parentNodeID ))
 		{
 			if ( $includeSubtree )
@@ -147,9 +146,9 @@ class nTagsFunctions
 		}
 		else
 		{
-			$parentNodeIDString = '';
+			// If we are not filtering by parent node, we may optimize away non-main nodes.
+			$parentNodeIDString = 'AND ezcontentobject_tree.main_node_id=ezcontentobject_tree.node_id';
 		}
-		*/
         $parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'" : '';
 
         $sqlClassIDString = '';
@@ -182,7 +181,6 @@ class nTagsFunctions
 				  $parentNodeIDString
 				  AND ezcontentclass.version=0
 				  AND ezcontentobject.status=".eZContentObject::STATUS_PUBLISHED."
-				  AND ezcontentobject_tree.main_node_id=ezcontentobject_tree.node_id
 				  AND ezcontentobject_tree.contentobject_id = ezcontentobject.id
 				  AND ezcontentclass.id = ezcontentobject.contentclass_id
 				  AND a1.id=ezkeyword_attribute_link.objectattribute_id
@@ -255,7 +253,8 @@ class nTagsFunctions
 		}
 		else
 		{
-			$parentNodeIDString = '';
+			// If we are not filtering by parent node, we may optimize away non-main nodes.
+			$parentNodeIDString = 'AND ezcontentobject_tree.main_node_id=ezcontentobject_tree.node_id';
 		}
 
         $sqlClassIDs = '';
@@ -293,7 +292,6 @@ class nTagsFunctions
                   AND ezcontentclass.version=0
                   AND ezcontentobject.status=".eZContentObject::STATUS_PUBLISHED."
                   AND ezcontentobject_attribute.version=ezcontentobject.current_version
-                  AND ezcontentobject_tree.main_node_id=ezcontentobject_tree.node_id
                   AND ezcontentobject_attribute.contentobject_id=ezcontentobject.id
                   AND ezcontentobject_tree.contentobject_id = ezcontentobject.id
                   AND ezcontentclass.id = ezcontentobject.contentclass_id
