@@ -149,7 +149,6 @@ class nTagsFunctions
 			// If we are not filtering by parent node, we may optimize away non-main nodes.
 			$parentNodeIDString = 'AND ezcontentobject_tree.main_node_id=ezcontentobject_tree.node_id';
 		}
-        $parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'" : '';
 
         $sqlClassIDString = '';
         if ( is_array( $classIDArray ) and count( $classIDArray ) )
