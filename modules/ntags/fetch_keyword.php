@@ -32,7 +32,7 @@ class nTagsFunctions
 	// Only exact matches are supported when using multiple keywords.
 	// Last parameter indicates whether to use "and" or "or".
 
-	// TODO: Proper function documentation. Improvements: automatically trim strings, include subtree
+	// TODO: Proper function documentation. Improvements: automatically trim strings, include subtree, selects smallest node id if multiple matches
     static public function fetchKeyword( $alphabet,
                            $classid,
                            $offset,
@@ -80,7 +80,7 @@ class nTagsFunctions
         $sortingInfo = array();
         $sortingInfo['attributeFromSQL'] = ', ezcontentobject_attribute a1';
         $sortingInfo['attributeWhereSQL'] = '';
-        $sqlTarget = 'ezcontentobject_tree.node_id';
+        $sqlTarget = 'MIN( ezcontentobject_tree.node_id )';
 
         if ( is_array( $sortBy ) && count ( $sortBy ) > 0 )
         {
@@ -166,7 +166,7 @@ class nTagsFunctions
 			}
 		}
 
-		$query = "SELECT $sqlTarget
+		$query = "SELECT $sqlTarget AS node_id
 				  FROM ezkeyword, ezkeyword_attribute_link,ezcontentobject_tree,ezcontentobject,ezcontentclass
 					   $sortingInfo[attributeFromSQL]
 					   $sqlPermissionChecking[from]
@@ -183,7 +183,9 @@ class nTagsFunctions
 				  AND ezcontentobject_tree.contentobject_id = ezcontentobject.id
 				  AND ezcontentclass.id = ezcontentobject.contentclass_id
 				  AND a1.id=ezkeyword_attribute_link.objectattribute_id
-				  AND ezkeyword_attribute_link.keyword_id = ezkeyword.id ORDER BY {$sortingInfo['sortingFields']}";
+				  AND ezkeyword_attribute_link.keyword_id = ezkeyword.id
+				  GROUP BY ezcontentobject_tree.main_node_id
+				  ORDER BY {$sortingInfo['sortingFields']}";
 
         $keyWords = $db->arrayQuery( $query, $db_params );
 
