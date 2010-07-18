@@ -32,7 +32,7 @@ class nTagsFunctions
 	// Only exact matches are supported when using multiple keywords.
 	// Last parameter indicates whether to use "and" or "or".
 
-	// TODO: Proper function documentation. Improvements: automatically trim strings, include subtree, selects smallest node id if multiple matches
+	// TODO: Proper function documentation. Improvements: automatically trim strings, include subtree, multiple parent nodes, selects smallest node id if multiple matches
     static public function fetchKeyword( $alphabet,
                            $classid,
                            $offset,
@@ -144,6 +144,27 @@ class nTagsFunctions
 				$parentNodeIDString = "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'";
 			}
 		}
+		else if ( is_array( $parentNodeID ))
+		{
+			$parentNodeIDString = "AND ( ";
+			$first = true;
+			foreach( $parentNodeID as $node )
+			{
+				if ( is_numeric( $node ) )
+				{
+					if ( $first )
+						$first = false;
+					else
+						$parentNodeIDString .= "OR ";
+
+					if ( $includeSubtree )
+						$parentNodeIDString .= "ezcontentobject_tree.path_string LIKE '%/$node/%' ";
+					else
+						$parentNodeIDString .= "ezcontentobject_tree.parent_node_id = '$node' ";
+				}
+			}
+			$parentNodeIDString .= " )";
+		}
 		else
 		{
 			// If we are not filtering by parent node, we may optimize away non-main nodes.
@@ -251,6 +272,27 @@ class nTagsFunctions
 				$parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'" : '';
 				
 			}
+		}
+		else if ( is_array( $parentNodeID ))
+		{
+			$parentNodeIDString = "AND ( ";
+			$first = true;
+			foreach( $parentNodeID as $node )
+			{
+				if ( is_numeric( $node ) )
+				{
+					if ( $first )
+						$first = false;
+					else
+						$parentNodeIDString .= "OR ";
+
+					if ( $includeSubtree )
+						$parentNodeIDString .= "ezcontentobject_tree.path_string LIKE '%/$node/%' ";
+					else
+						$parentNodeIDString .= "ezcontentobject_tree.parent_node_id = '$node' ";
+				}
+			}
+			$parentNodeIDString .= " )";
 		}
 		else
 		{
