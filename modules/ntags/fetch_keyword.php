@@ -137,11 +137,11 @@ class nTagsFunctions
 		{
 			if ( $includeSubtree )
 			{
-				$parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.path_string LIKE '%/$parentNodeID/%'" : '';
+				$parentNodeIDString = "AND ezcontentobject_tree.path_string LIKE '%/$parentNodeID/%'";
 			}
 			else
 			{
-				$parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'" : '';
+				$parentNodeIDString = "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'";
 			}
 		}
 		else
