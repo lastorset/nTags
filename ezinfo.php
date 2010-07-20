@@ -29,7 +29,7 @@ class nTagsInfo
     static function info()
     {
 
-        return array( 'Name'      => '<a href="http://projects.ez.no/ntags">nTags</a> extension',
+        return array( 'Name'      => '<a href="http://projects.ez.no/ntags">nTags</a>',
                       'Version'   => '1.1-0',
                       'Copyright' => 'Copyright (c) 2009-2010 Leif Arne Storset',
                       'License'   => 'GNU General Public License v2.0',
