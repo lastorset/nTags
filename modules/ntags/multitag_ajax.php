@@ -17,13 +17,13 @@ function nTagsAjax() {
 	// Check input
 	$http = eZHTTPTool::instance();
 	if( !$http->hasPostVariable( "attrID" ) ) {
-		echo "error: ". eZi18n( "ntags/ajax", "No attrID specified" );
+		echo "error: ". ezpI18n::tr( "ntags/ajax", "No attrID specified" );
 		return;
 	} else if( !$http->hasPostVariable( "version" ) ) {
-		echo "error: ". eZi18n( "ntags/ajax", "No version number specified" );
+		echo "error: ". ezpI18n::tr( "ntags/ajax", "No version number specified" );
 		return;
 	} else if( !$http->hasPostVariable( "tags" ) && !$http->hasPostVariable( "removeAll" ) ) {
-		echo "error: ". eZi18n( "ntags/ajax", "'tags' and 'removeAll' not specified: nothing to do" );
+		echo "error: ". ezpI18n::tr( "ntags/ajax", "'tags' and 'removeAll' not specified: nothing to do" );
 		return;
 	}
 

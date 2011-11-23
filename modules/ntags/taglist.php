@@ -7,8 +7,8 @@ include_once( "kernel/classes/ezcache.php" );
 $ini = eZINI::instance( "tags.ini" );
 $tpl = templateInit();
 $Result['path'] = array( 
-			array( 'text' => ezi18n( 'ntags', 'Tags' ) ), 
-			array( 'url' => '/ntags/taglist', 'text' => ezi18n('ntags', 'Predefined tags') ) 
+			array( 'text' => ezpI18n::tr( 'ntags', 'Tags' ) ), 
+			array( 'url' => '/ntags/taglist', 'text' => ezpI18n::tr('ntags', 'Predefined tags') ) 
 );
 $http = eZHTTPTool::instance();
 $clearCacheNote = false;
