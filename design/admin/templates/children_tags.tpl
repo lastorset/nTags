@@ -7,6 +7,7 @@
        hash( 'module',   'ntags',
              'function', 'multitag') )}
 	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_multitag.js"></script>
+	{include uri='file:extension/ntags/design/ntags/init.tpl'}
 	<div class="nTagsEditActivation">
 	<input type="submit" class="button" id="nTagsEditChildren" value="{"Edit tags"|i18n("ntags/admin/view")}" />
 	<input type="submit" class="button nTagsEditControls" id="nTagsSave" value="{"Save tags"|i18n("ntags/admin/view")}" />

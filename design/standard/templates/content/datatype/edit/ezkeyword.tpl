@@ -1,4 +1,6 @@
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_edit.js"></script>
+{include uri='file:extension/ntags/design/ntags/init.tpl'}
+
 {default attribute_base=ContentObjectAttribute}
 {* Find id of attribute *}
 {def $attr_id="ezcoa-"}

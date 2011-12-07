@@ -48,7 +48,7 @@ nTags.multi.saveTags = function() {
 	for(i = 0; i < dirtyObjects.length; i++) {
 		var dirty = dirtyObjects[i];
 		var options = {attrID: dirty.attr, version: dirty.version, index: i, "tags[]": dirty.labels, removeAll: (dirty.labels.length == 0 ? true : false)};
-		$.post("/ntags/multitag_ajax", options, function(response) { 
+		$.post(ntags.rootURL +"/ntags/multitag_ajax", options, function(response) {
 			if (response.substr(0,7) == "success") {
 				var index = response.substr(9);
 				dirtyObjects[index].tr.find("td.tags label.new").each( function() {

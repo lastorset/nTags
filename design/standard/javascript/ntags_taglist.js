@@ -7,7 +7,7 @@ nTags.taglist.saveSort = function(callback) {
 	var tags = $("td label.tag").get().map( function(elem, index) {
 		return $(elem).html();
 	});
-	$.post("/ntags/taglist_ajax", {SaveSortButton: true, tags: $.json.encode(tags)}, function (response) {
+	$.post(nTags.rootURL +"/ntags/taglist_ajax", {SaveSortButton: true, tags: $.json.encode(tags)}, function (response) {
 		$("#saveStatus").hide();
 		if(response.substring(0, 7) == "success") {
 			callback( function() {

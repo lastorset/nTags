@@ -70,6 +70,7 @@
 
 <div class="nTags nTagsFilter">
 	<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_filter.js"></script>
+	{include uri='file:extension/ntags/design/ntags/init.tpl'}
 	<label for="nTagsFilterText">{"Tag:"|i18n("ntags/admin/view")}</label>
 	<input type="text" id="nTagsFilterText" name="tags" value="{$view_parameters.tags|wash()}" />
 	<input type="hidden" id="nTagsNodeURL" value={$node.url|ezurl()} />
