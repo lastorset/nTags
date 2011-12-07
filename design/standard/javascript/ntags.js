@@ -11,7 +11,7 @@ nTags.searchArray = function(haystack, needle) {
 };
 
 // Helper function to print an array, for debugging purposes
-function toString(obj, prefix) {
+nTags.toString = function(obj, prefix) {
 	if (prefix == undefined) 
 		prefix = "";
 
@@ -20,7 +20,7 @@ function toString(obj, prefix) {
 	} else if(obj.constructor == Array || obj.constructor == Object) {
 		str += "{\n";
 		for(var p in obj) {
-			str += prefix +"\t["+ p +"]: "+ toString(obj[p], prefix +"\t") +"\n";
+			str += prefix +"\t["+ p +"]: "+ nTags.toString(obj[p], prefix +"\t") +"\n";
 		}
 		str += prefix +"}";
 	} else {
