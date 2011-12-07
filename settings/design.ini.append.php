@@ -1,4 +1,4 @@
-<?php /*
+<?php /* vim:set syntax=dosini:
 [ExtensionSettings]
 DesignExtensions[]=ntags
 
