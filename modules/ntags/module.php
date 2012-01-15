@@ -13,6 +13,13 @@ $ViewList['taglist_ajax'] = array(
 	'script' => 'taglist_ajax.php',
 	'params' => array('tags')
 );
+$ViewList['multitag'] = array(
+	'functions' => array( 'multitag' ),
+	'script' => 'multitag.php',
+    'default_navigation_part' => 'ntags',
+    'params' => array( 'NodeID'),
+    'unordered_params' => array( 'offset' => 'Offset' )
+);
 $ViewList['multitag_ajax'] = array(
 	'functions' => array( 'multitag' ),
 	'script' => 'multitag_ajax.php',

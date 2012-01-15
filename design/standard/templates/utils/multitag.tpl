@@ -1,6 +1,20 @@
 {* Uncomment if needed
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/jquery-ui-1.7.2.custom.min.js"></script>
 *}
+
+{* TODO paging *}
+
+{let node=fetch( content, node, hash( node_id, $node_id ) )
+     item_type=ezpreference( 'admin_list_limit' )
+     number_of_items=min( $item_type, 3)|choose( 10, 10, 25, 50 )
+     children_count=fetch( content, list_count, hash( parent_node_id, $node.node_id ) )
+     children=fetch( content, list, hash( parent_node_id, $node.node_id,
+                                          sort_by, $node.sort_array,
+                                          limit, $number_of_items,
+                                          offset, $offset ) ) }
+
+Tag multiple items
+
 <div class="content-navigation-childlist nTagsView" id="nTagsChildren">
 
 	{if fetch( 'user', 'has_access_to',
