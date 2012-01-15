@@ -2,8 +2,6 @@
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/jquery-ui-1.7.2.custom.min.js"></script>
 *}
 
-{* TODO paging *}
-
 {let node=fetch( content, node, hash( node_id, $node_id ) )
      item_type=ezpreference( 'admin_list_limit' )
      number_of_items=min( $item_type, 3)|choose( 10, 10, 25, 50 )
@@ -13,9 +11,32 @@
                                           limit, $number_of_items,
                                           offset, $offset ) ) }
 
-Tag multiple items
+<h1 class="context-title box-header">{"Tag multiple items"|i18n( 'ntags' )}</h1>
 
 <div class="content-navigation-childlist nTagsView" id="nTagsChildren">
+<div class="number-of-items">
+{switch match=$number_of_items}
+{case match=25}
+	<a href={'/user/preferences/set/admin_list_limit/1'|ezurl} title="{'Show 10 items per page.'|i18n( 'design/admin/node/view/full' )}">10</a>
+	<span class="current">25</span>
+	<a href={'/user/preferences/set/admin_list_limit/3'|ezurl} title="{'Show 50 items per page.'|i18n( 'design/admin/node/view/full' )}">50</a>
+
+	{/case}
+
+	{case match=50}
+	<a href={'/user/preferences/set/admin_list_limit/1'|ezurl} title="{'Show 10 items per page.'|i18n( 'design/admin/node/view/full' )}">10</a>
+	<a href={'/user/preferences/set/admin_list_limit/2'|ezurl} title="{'Show 25 items per page.'|i18n( 'design/admin/node/view/full' )}">25</a>
+	<span class="current">50</span>
+	{/case}
+
+	{case}
+	<span class="current">10</span>
+	<a href={'/user/preferences/set/admin_list_limit/2'|ezurl} title="{'Show 25 items per page.'|i18n( 'design/admin/node/view/full' )}">25</a>
+	<a href={'/user/preferences/set/admin_list_limit/3'|ezurl} title="{'Show 50 items per page.'|i18n( 'design/admin/node/view/full' )}">50</a>
+	{/case}
+
+	{/switch}
+</div>
 
 	{if fetch( 'user', 'has_access_to',
        hash( 'module',   'ntags',
@@ -28,7 +49,7 @@ Tag multiple items
 	</div>
 	<div id="nTagsAddTagDiv" class="nTagsEditControls">
 		<input type="submit" class="button nTagsEditControls" id="nTagsAddTag" value="{"Add tags"|i18n("ntags/admin/view")}" />
-		<input type="text" id="nTagsNewTag"/>
+		<input type="text" id="nTagsNewTag" placeholder="{"Separate with commas"|i18n("ntags/admin/view")}"/>
 		<input type="checkbox" id="nTagsNewTagChecked"/>
 		<label for="nTagsNewTagChecked">{"Apply the new tag to all items"|i18n("ntags/admin/view")}</label>
 	</div>
@@ -36,9 +57,6 @@ Tag multiple items
 
     <table class="list" cellspacing="0">
     <tr>
-        {* Remove column *}
-        <th class="remove"><img src={'toggle-button-16x16.gif'|ezimage} alt="{'Invert selection.'|i18n( 'design/admin/node/view/full' )}" title="{'Invert selection.'|i18n( 'design/admin/node/view/full' )}" onclick="ezjs_toggleCheckboxes( document.children, 'DeleteIDArray[]' ); return false;" /></th>
-
         {* Name column *}
         <th class="name">{'Name'|i18n( 'design/admin/node/view/full' )}</th>
 
@@ -47,9 +65,6 @@ Tag multiple items
 
         {* Class type column *}
         <th class="class">{'Type'|i18n( 'design/admin/node/view/full' )}</th>
-
-        {* Edit column *}
-        <th class="edit">&nbsp;</th>
     </tr>
 
     {section var=Nodes loop=$children sequence=array( bglight, bgdark )}
@@ -58,15 +73,6 @@ Tag multiple items
          nodeContent=$Nodes.item.object}
 
         <tr class="{$Nodes.sequence}" id="nTags_object_{$nodeContent.id}">
-
-        {* Remove checkbox *}
-        <td>
-        {section show=$Nodes.item.can_remove}
-            <input type="checkbox" name="DeleteIDArray[]" value="{$Nodes.item.node_id}" title="{'Use these checkboxes to select items for removal. Click the "Remove selected" button to  remove the selected items.'|i18n( 'design/admin/node/view/full' )|wash()}" />
-            {section-else}
-            <input type="checkbox" name="DeleteIDArray[]" value="{$Nodes.item.node_id}" title="{'You do not have permission to remove this item.'|i18n( 'design/admin/node/view/full' )}" disabled="disabled" />
-        {/section}
-        </td>
 
         {* Name *}
         <td>{node_view_gui view=line content_node=$Nodes.item}
@@ -105,20 +111,19 @@ Tag multiple items
 
         {* Class type *}
         <td class="class">{$Nodes.item.class_name|wash()}</td>
-
-        {* Edit button *}
-        <td>
-        {section show=$Nodes.item.can_edit}
-            <a href={concat( 'content/edit/', $Nodes.item.contentobject_id )|ezurl}><img src={'edit.gif'|ezimage} alt="{'Edit'|i18n( 'design/admin/node/view/full' )}" title="{'Edit <%child_name>.'|i18n( 'design/admin/node/view/full',, hash( '%child_name', $child_name ) )|wash}" /></a>
-        {section-else}
-            <img src={'edit-disabled.gif'|ezimage} alt="{'Edit'|i18n( 'design/admin/node/view/full' )}" title="{'You do not have permission to edit %child_name.'|i18n( 'design/admin/node/view/full',, hash( '%child_name', $child_name ) )|wash}" />
-        {/section}
-        </td>
   </tr>
 
 {/let}
 {/section}
 
 </table>
+
+{def $view_parameters=hash( "offset", $offset )}
+{include name=navigator
+	uri="design:navigator/google.tpl"
+	page_uri=$uri
+	item_count=$children_count
+	view_parameters=$view_parameters
+	item_limit=$number_of_items}
 </div>
 

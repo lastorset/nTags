@@ -67,6 +67,11 @@ div.content-navigation-childlist table.list th.tags, div.content-edit table.list
 	margin: 0;
 }
 
+.nTagsEditActivation, #nTagsAddTagDiv {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 #nTagsChildren input.button[disabled],
 .nTags input.button[disabled] {
 	background-image: none;
@@ -75,6 +80,24 @@ div.content-navigation-childlist table.list th.tags, div.content-edit table.list
 
 #nTagsSave, #nTagsAddTagDiv {
 	display: none;
+}
+
+#nTagsChildren .pagenavigator {
+	margin-top: 0.5em;
+}
+
+#nTagsChildren .number-of-items {
+	float: right;
+}
+
+#nTagsChildren .number-of-items > *,
+#nTagsChildren .pagenavigator span.previous,
+#nTagsChildren .pagenavigator span.next,
+#nTagsChildren .pagenavigator span.pages > span {
+	border-radius: 2px;
+	border: 1px solid #cccccc;
+	padding: 2px;
+	background: -o-linear-gradient(to bottom, #e6e6e6, #dcdcdc);
 }
 
 .ui-state-error {
