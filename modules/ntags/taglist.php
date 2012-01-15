@@ -49,4 +49,5 @@ $tpl->setVariable( 'predef_tags', $predefTags );
 $tpl->setVariable( 'clear_cache_note', $clearCacheNote );
 
 $Result['content'] = $tpl->fetch ( 'design:utils/taglist.tpl' );
+$Result['left_menu'] = 'design:parts/ntags/menu.tpl';
 ?>

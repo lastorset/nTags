@@ -17,5 +17,6 @@ Enabled[edit]=false
 Shown[]
 Shown[default]=true
 Shown[navigation]=true
-Shown[browse]=true
+Shown[browse]=false
+
 */ ?>
