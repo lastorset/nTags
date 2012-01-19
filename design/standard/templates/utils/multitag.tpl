@@ -1,4 +1,6 @@
 {ezcss_require( 'ntags.css' )}
+{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) )}
+
 {* Uncomment if needed
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/jquery-ui-1.7.2.custom.min.js"></script>
 *}

@@ -2,9 +2,8 @@
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_taglist.js"></script>
 {ezcss_require( 'jquery/redmond/jquery-ui-1.7.2.custom.css' )}
 {ezcss_require( 'ntags.css' )}
-{include uri='file:extension/ntags/design/ntags/init.tpl'}
 
-{include uri='design:ezjscore_jquery_demo.tpl'}
+{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) )}
 
 <div class="context-block ntags">
 {if $clear_cache_note}

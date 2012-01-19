@@ -7,15 +7,15 @@ nTags.taglist.saveSort = function(callback) {
 	var tags = $("td label.tag").get().map( function(elem, index) {
 		return $(elem).html();
 	});
-	$.post(nTags.rootURL +"/ntags/taglist_ajax", {SaveSortButton: true, tags: $.json.encode(tags)}, function (response) {
+	$.ez('nTagsServer::saveTaglistSort', {SaveSortButton: true, tags: tags}, function (response) {
 		$("#saveStatus").hide();
-		if(response.substring(0, 7) == "success") {
+		if(response.content == "success") {
 			callback( function() {
 				$("#sortInstructions").show();
 				$("#saveStatus").hide();
 			});
 		} else {
-			$("#saveResult .message").html(response);
+			$("#saveResult .message").html(response.error_text + " "+ response.content);
 			$("#saveResult").slideDown();
 			$("#sortInstructions").show();
 		}
