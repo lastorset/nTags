@@ -46,21 +46,20 @@ class nTagsServer extends ezjscServerFunctions {
 	public static function saveTaglistSort( $args ) {
 		$http = eZHTTPTool::instance();
 
-		if(!$http->hasVariable( "SaveSortButton" ) && $http->hasVariable( "tags" ) ) {
-			return "error: missing parameters SaveSortButton and tags";
-		}
+		if( !( $http->hasVariable( "SaveSortButton" ) && $http->hasVariable( "tags" ) ))
+			throw new Exception("missing parameters SaveSortButton and tags");
 
 		$tags = $http->variable( "tags" );
 
 		// Simple sanity check
-		if (!(is_array($tags) && count($tags) > 0))
-			return "error: submitted tag set was empty";
+		if ( !( is_array( $tags ) && count( $tags ) > 0) )
+			throw new Exception("Submitted tag set was empty");
 
 		$ini = eZINI::instance( "tags.ini" );
 		$ini->setVariable( "Tags", "Tags", $tags );
 		$ini->save(false, false, "append");
 		eZCache::clearByTag("ini");
-		return "success";
+		return;
 	}
 }
 ?>

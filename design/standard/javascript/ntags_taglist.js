@@ -9,15 +9,15 @@ nTags.taglist.saveSort = function(callback) {
 	});
 	$.ez('nTagsServer::saveTaglistSort', {SaveSortButton: true, tags: tags}, function (response) {
 		$("#saveStatus").hide();
-		if(response.content == "success") {
+		if(response.error_text) {
+			$("#saveResult .message").html(response.error_text);
+			$("#saveResult").slideDown();
+			$("#sortInstructions").show();
+		} else {
 			callback( function() {
 				$("#sortInstructions").show();
 				$("#saveStatus").hide();
 			});
-		} else {
-			$("#saveResult .message").html(response.error_text + " "+ response.content);
-			$("#saveResult").slideDown();
-			$("#sortInstructions").show();
 		}
 	});
 };
