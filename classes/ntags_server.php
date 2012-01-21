@@ -5,8 +5,6 @@ include_once( 'lib/ezutils/classes/ezhttptool.php' );
 include_once( "lib/ezutils/classes/ezini.php" );
 include_once( "kernel/classes/ezcache.php" );
 
-// TODO: Needs to check access rights
-
 class IndexedException extends Exception {
 	function __construct($index, $msg) {
 		parent::__construct("Element ". $index .": ". $msg);

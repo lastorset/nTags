@@ -1,0 +1,24 @@
+nTags extension for eZ publish
+by Leif Arne Storset. Licensed under the GNU General Public License.
+
+--
+
+Requires eZJSCore. If you want the tag list to be alphabetically sorted
+when editing an object, you can install the arraysortoperator extension,
+but this is not required.
+
+--
+
+This extension is usable immediately for many sites. Users can tag
+any object they own that contains a Keywords attribute. Administrator
+users may use the Tags tab to edit the list of predefined tags or tag
+multiple objects.
+
+If you wish other users to be able to use the Tags tab, grant them
+the ezjscore/ntags permission, and either ntags/multitag or ntags/taglist.
+
+--
+
+Known issues:
+- The multitag utility allows tagging objects the user does not own.
+- The Tags top-menu item requires "ntags/multitag" permissions to display.

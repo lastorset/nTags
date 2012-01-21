@@ -9,7 +9,7 @@ Tabs[]=ntags
 Name=Tags
 NavigationPartIdentifier=ntags
 URL[]
-URL[default]=ntags/taglist
+URL[default]=ntags/multitag
 Enabled[]
 Enabled[default]=true
 Enabled[browse]=false

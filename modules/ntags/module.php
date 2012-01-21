@@ -8,21 +8,12 @@ $ViewList['taglist'] = array(
 	'script' => 'taglist.php',
     'default_navigation_part' => 'ntags'
 );
-$ViewList['taglist_ajax'] = array(
-	'functions' => array( 'edit_predefined' ),
-	'script' => 'taglist_ajax.php',
-	'params' => array('tags')
-);
 $ViewList['multitag'] = array(
 	'functions' => array( 'multitag' ),
 	'script' => 'multitag.php',
     'default_navigation_part' => 'ntags',
     'params' => array( 'NodeID'),
     'unordered_params' => array( 'offset' => 'Offset' )
-);
-$ViewList['multitag_ajax'] = array(
-	'functions' => array( 'multitag' ),
-	'script' => 'multitag_ajax.php',
 );
 $FunctionList = array();
 $FunctionList[ 'edit_predefined' ] = array();
