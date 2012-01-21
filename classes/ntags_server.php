@@ -54,13 +54,13 @@ class nTagsServer extends ezjscServerFunctions {
 		$http = eZHTTPTool::instance();
 
 		if( !( $http->hasVariable( "SaveSortButton" ) && $http->hasVariable( "tags" ) ))
-			throw new Exception("missing parameters SaveSortButton and tags");
+			throw new Exception( ezpI18n::tr( "ntags/ajax", "missing parameters SaveSortButton and tags" ) );
 
 		$tags = $http->variable( "tags" );
 
 		// Simple sanity check
 		if ( !( is_array( $tags ) && count( $tags ) > 0) )
-			throw new Exception("Submitted tag set was empty");
+			throw new Exception( ezpI18n::tr( "Submitted tag set was empty") );
 
 		$ini = eZINI::instance( "tags.ini" );
 		$ini->setVariable( "Tags", "Tags", $tags );
