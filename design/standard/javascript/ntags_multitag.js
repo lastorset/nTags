@@ -51,10 +51,12 @@ nTags.multi.saveTags = function() {
 		var args = {attrID: dirty.attr, version: dirty.version, index: i, "tags[]": dirty.labels, removeAll: (dirty.labels.length == 0 ? true : false)};
 		$.ez('nTagsServer::multitag', args, function(response) {
 			if (response.error_text) {
-				alert(response);
-				if (response.error_text.substr(0,8) == "Element ")
+				alert(response.error_text);
+				var regex = /Element (\d+)/;
+				var result = regex.exec(response.error_text);
+				if (result)
 				{
-					var index = response.error_text.charAt(9);
+					var index = parseInt(result[1]);
 					dirtyObjects[index].tr.find("img.saving").remove();
 				}
 			} else {
