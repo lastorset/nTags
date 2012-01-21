@@ -8,6 +8,7 @@ nTags.multi.saveTags = function() {
 		this.labels = labels;
 	};
 	var dirtyObjects = new Array();
+
 	// Traverse all tags and determine whether they need storing
 	$(".nTagsEdit tr td.tags").each( function() {
 		// Find version and attribute
@@ -45,20 +46,24 @@ nTags.multi.saveTags = function() {
 		}
 	});
 	// Mark dirty rows visually while saving
-	for(i = 0; i < dirtyObjects.length; i++) {
+	for(var i = 0; i < dirtyObjects.length; i++) {
 		var dirty = dirtyObjects[i];
-		var options = {attrID: dirty.attr, version: dirty.version, index: i, "tags[]": dirty.labels, removeAll: (dirty.labels.length == 0 ? true : false)};
-		$.post(ntags.rootURL +"/ntags/multitag_ajax", options, function(response) {
-			if (response.substr(0,7) == "success") {
-				var index = response.substr(9);
+		var args = {attrID: dirty.attr, version: dirty.version, index: i, "tags[]": dirty.labels, removeAll: (dirty.labels.length == 0 ? true : false)};
+		$.ez('nTagsServer::multitag', args, function(response) {
+			if (response.error_text) {
+				alert(response);
+				if (response.error_text.substr(0,8) == "Element ")
+				{
+					var index = response.error_text.charAt(9);
+					dirtyObjects[index].tr.find("img.saving").remove();
+				}
+			} else {
+				var index = response.content;
 				dirtyObjects[index].tr.find("td.tags label.new").each( function() {
 					$(this).removeClass("new");
 					$(this).addClass("saved");
 					});
 				dirtyObjects[index].tr.find("td.tags label.delete").remove();
-				dirtyObjects[index].tr.find("img.saving").remove();
-			} else {
-				alert(response);
 				dirtyObjects[index].tr.find("img.saving").remove();
 			}
 		});

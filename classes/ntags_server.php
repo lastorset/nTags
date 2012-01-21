@@ -7,16 +7,24 @@ include_once( "kernel/classes/ezcache.php" );
 
 // TODO: Needs to check access rights
 
+class IndexedException extends Exception {
+	function __construct($index, $msg) {
+		parent::__construct("Element ". $index .": ". $msg);
+	}
+}
+
 class nTagsServer extends ezjscServerFunctions {
 	public static function multitag( $args ) {
 		// Check input
 		$http = eZHTTPTool::instance();
+		$index = $http->postVariable( "index" );
+
 		if( !$http->hasPostVariable( "attrID" ) ) {
-			return "error: ". ezpI18n::tr( "ntags/ajax", "No attrID specified" );
+			throw new IndexedException( $index, ezpI18n::tr( "ntags/ajax", "No attrID specified" ) );
 		} else if( !$http->hasPostVariable( "version" ) ) {
-			return "error: ". ezpI18n::tr( "ntags/ajax", "No version number specified" );
+			throw new IndexedException( $index, ezpI18n::tr( "ntags/ajax", "No version number specified" ) );
 		} else if( !$http->hasPostVariable( "tags" ) && !$http->hasPostVariable( "removeAll" ) ) {
-			return "error: ". ezpI18n::tr( "ntags/ajax", "'tags' and 'removeAll' not specified: nothing to do" );
+			throw new IndexedException( $index, ezpI18n::tr( "ntags/ajax", "'tags' and 'removeAll' not specified: nothing to do" ) );
 		}
 
 		// Fetch node
@@ -24,12 +32,11 @@ class nTagsServer extends ezjscServerFunctions {
 		$version = $http->postVariable( "version" );
 		$attr = eZContentObjectAttribute::fetch( $attrID, $version );
 		if( $attr == null ) {
-			return "error: Could not fetch attribute with id '$attrID' and version '$version'";
+			throw new IndexedException( $index, "Could not fetch attribute with id '$attrID' and version '$version'" );
 		}
 
 		// Retrieve keyword attribute and new keywords
 		$tags = $attr->content();
-		//$newTags = $_POST["tags"];
 		$newTags = $http->postVariable( "tags" );
 
 		// Store attribute
@@ -40,7 +47,7 @@ class nTagsServer extends ezjscServerFunctions {
 		eZContentCacheManager::clearObjectViewCache( $attr->ContentObjectID );
 
 		// Return success and the index of the given element
-		return "success: ". $http->postVariable( "index" );
+		return $http->postVariable( "index" );
 	}
 
 	public static function saveTaglistSort( $args ) {
