@@ -33,8 +33,8 @@ class nTagsInfo
                       'Version'   => '1.1-0',
                       'Copyright' => 'Copyright (c) 2009-2010 Leif Arne Storset',
                       'License'   => 'GNU General Public License v2.0',
-                      'Includes the following third-party software' => array( 'Name' => 'jQuery',
-                                                                              'Version' => "1.3.2",
+                      'Includes the following third-party software' => array( 'Name' => 'jQuery UI',
+                                                                              'Version' => "1.7.2",
                                                                               'Copyright' => 'Copyright (c) 2009 John Resig',
                                                                               'License' => 'Dual licensed under the MIT and GPL licenses',)
                     );
