@@ -50,12 +50,12 @@
 	<input type="submit" class="button" id="nTagsEditChildren" value="{"Edit tags"|i18n("ntags/admin/view")}" />
 	<input type="submit" class="button nTagsEditControls" id="nTagsSave" value="{"Save tags"|i18n("ntags/admin/view")}" />
 	</div>
-	<div id="nTagsAddTagDiv" class="nTagsEditControls">
+	<form id="nTagsAddTagDiv" class="nTagsEditControls">
 		<input type="submit" class="button nTagsEditControls" id="nTagsAddTag" value="{"Add tags"|i18n("ntags/admin/view")}" />
 		<input type="text" id="nTagsNewTag" placeholder="{"Separate with commas"|i18n("ntags/admin/view")}"/>
 		<input type="checkbox" id="nTagsNewTagChecked"/>
 		<label for="nTagsNewTagChecked">{"Apply the new tag to all items"|i18n("ntags/admin/view")}</label>
-	</div>
+	</form>
 	{/if}
 
     <table class="list" cellspacing="0">

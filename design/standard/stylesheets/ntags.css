@@ -120,7 +120,7 @@ td.tags label.new {
 }
 
 td.tags label.delete {
-	background-color: red;
+	background-color: maroon;
 	color: white;
 }
 
