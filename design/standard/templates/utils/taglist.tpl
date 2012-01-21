@@ -1,9 +1,12 @@
-<script type="text/javascript" src="/extension/ntags/design/standard/javascript/jquery-ui-1.7.2.custom.min.js"></script>
-<script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_taglist.js"></script>
 {ezcss_require( 'jquery/redmond/jquery-ui-1.7.2.custom.css' )}
 {ezcss_require( 'ntags.css' )}
 
-{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) )}
+{ezscript_require( array(
+	'ezjsc::jquery',
+	'ezjsc::jqueryio',
+	'jquery-ui-1.7.2.custom.min.js',
+	'ntags_taglist.js',
+) )}
 
 <div class="context-block ntags">
 {if $clear_cache_note}
