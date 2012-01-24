@@ -4,227 +4,45 @@
 <context>
     <name>design/admin/node/view/full</name>
     <message>
-        <source>Display sub items with tags.</source>
-        <translation>Vis stikkord.</translation>
-    </message>
-    <message>
         <source>Tags</source>
         <translation>Stikkord</translation>
     </message>
     <message>
-        <source>Up one level.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sub items [%children_count]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Show 10 items per page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis 10 elementer per side.</translation>
     </message>
     <message>
         <source>Show 50 items per page.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis 50 elementer per side.</translation>
     </message>
     <message>
         <source>Show 25 items per page.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display sub items using a simple list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display sub items as thumbnails.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thumbnail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Display sub items using a detailed list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Detailed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The current item does not contain any sub items.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove the selected items from the list above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You do not have permission to remove any of the items from the list above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Move selected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Move the selected items from the list above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You do not have permission to move any of the items from the list above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update priorities</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply changes to the priorities of the items in the list above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You cannot update the priorities because you do not have permission to edit the current item or because a non-priority sorting method is used.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use this menu to select the type of item you want to create then click the &quot;Create here&quot; button. The item will be created in the current location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use this menu to select the language you want to use for the creation then click the &quot;Create here&quot; button. The item will be created in the current location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create a new item in the current location. Use the menu on the left to select the type of  item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Not available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You do not have permission to create new items in the current location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sorting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Class identifier</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Class name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Depth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Modified</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished">Navn</translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Published</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Section</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You cannot set the sorting method for the current location because you do not have permission to edit the current item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use these controls to set the sorting method for the sub items of the current location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invert selection.</source>
-        <translation type="unfinished">Bytt om utvalg.</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use these checkboxes to select items for removal. Click the &quot;Remove selected&quot; button to  remove the selected items.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You do not have permission to remove this item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(disabled)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>(locked)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit &lt;%child_name&gt;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You do not have permission to edit %child_name.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>design/admin/setup/cache</name>
-    <message>
-        <source>Invert selection.</source>
-        <translation type="obsolete">Bytt om utvalg.</translation>
+        <translation>Vis 25 elementer per side.</translation>
     </message>
     <message>
         <source>Name</source>
         <translation>Navn</translation>
     </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>(disabled)</source>
+        <comment>Regarding user objects</comment>
+        <translation>(deaktivert)</translation>
+    </message>
+    <message>
+        <source>(locked)</source>
+        <comment>Regarding user objects</comment>
+        <translation>(låst)</translation>
+    </message>
 </context>
 <context>
-    <name>kernel/navigationpart</name>
+    <name>design/admin/setup/cache</name>
     <message>
-        <source>Tags</source>
-        <comment>Navigation part</comment>
-        <translation type="obsolete">Stikkord</translation>
+        <source>Name</source>
+        <translation>Navn</translation>
     </message>
 </context>
 <context>
@@ -236,6 +54,14 @@
     <message>
         <source>Predefined tags</source>
         <translation>Hovedstikkord</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Innstillinger</translation>
+    </message>
+    <message>
+        <source>Tag multiple items</source>
+        <translation>Merk mange elementer</translation>
     </message>
 </context>
 <context>
@@ -250,29 +76,34 @@
     </message>
     <message>
         <source>Add tags</source>
-        <translation>Legg til nye stikkord:</translation>
+        <translation>Legg til nye stikkord</translation>
     </message>
     <message>
         <source>Apply the new tag to all items</source>
         <translation>Merk alle oppføringene i denne listen med de nye stikkordene</translation>
     </message>
     <message>
-        <source>Filter</source>
-        <comment>command button, imperative form</comment>
-        <translation>Filtrer</translation>
+        <source>Separate with commas</source>
+        <translation>Skill med komma</translation>
+    </message>
+</context>
+<context>
+    <name>ntags/ajax</name>
+    <message>
+        <source>No attrID specified</source>
+        <translation>attrID ikke oppgitt</translation>
     </message>
     <message>
-        <source>Filtered by %tags</source>
-        <translation>Filtrert på %tags</translation>
+        <source>No version number specified</source>
+        <translation>Versjonsnummer ikke oppgitt</translation>
     </message>
     <message>
-        <source>Clear filter</source>
-        <comment>command button, imperative verb phrase</comment>
-        <translation>Ikke filtrer</translation>
+        <source>&apos;tags&apos; and &apos;removeAll&apos; not specified: nothing to do</source>
+        <translation>&apos;tags&apos; og &apos;removeAll&apos; ikke oppgitt: ingenting å gjøre</translation>
     </message>
     <message>
-        <source>Tag:</source>
-        <translation type="unfinished">Stikkord:</translation>
+        <source>missing parameters SaveSortButton and tags</source>
+        <translation>manglende parameter SaveSortButton og tags</translation>
     </message>
 </context>
 <context>
