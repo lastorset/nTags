@@ -1,6 +1,10 @@
 <script type="text/javascript" src="/extension/ntags/design/standard/javascript/ntags_edit.js"></script>
 {ezcss_require( 'ntags.css' )}
-{include uri='file:extension/ntags/design/ntags/init.tpl'}
+{ezscript_require( array(
+	'ezjsc::jquery',
+	'ezjsc::jqueryio',
+	'ntags_taglist.js',
+) )}
 
 {default attribute_base=ContentObjectAttribute}
 {* Find id of attribute *}
