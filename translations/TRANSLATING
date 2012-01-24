@@ -1,0 +1,9 @@
+To update and edit translations, build ezlupdate and install Qt Linguist, then change
+to the eZ publish root directory and run
+
+bin/linux/ezlupdate -e extension/ntags -no LANGUAGE
+
+You can add '-v' for more verbose output.
+
+Information on building and installing the requirements may be found in
+support/ezlupdate-qt4.5/README.txt under the eZ publish root.
