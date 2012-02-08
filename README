@@ -1,5 +1,11 @@
 nTags extension for eZ publish
+
 by Leif Arne Storset. Licensed under the GNU General Public License.
+http://projects.ez.no/ntags ⁘ leifarne@storset.net
+
+
+Extends eZ publish's built-in Keywords datatype with configurable predefined
+keywords and a multi-tagging UI.
 
 --
 
