@@ -7,7 +7,20 @@ then
 	mkdir package/output;
 fi
 
+# Convert spaces in version to underscores
 VERSION=`cat ./version | sed -e "s/ /_/"`
 
+# Create a temporary folder with the correct name (in case working directory is called something else)
+if test -e /tmp/ntags;
+then
+	echo error: /tmp/ntags already exists; will not overwrite it 1>&2;
+	exit 1;
+fi
+
+ln -s $PWD /tmp/ntags
+
 # Package
-tar --exclude-from=package/package-exclude -czf package/output/ntags-${VERSION}.tar.gz *
+tar --exclude-from=package/package-exclude -chzf package/output/ntags-${VERSION}.tar.gz -C /tmp ntags
+
+# Clean up
+rm /tmp/ntags
