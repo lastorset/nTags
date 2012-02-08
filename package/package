@@ -1,2 +1,11 @@
+#/bin/sh
 cd ..
-tar --exclude-from=package/package-exclude -czf package/ntags.tar.gz *
+
+# Create output directory
+if test ! -e package/output;
+then
+	mkdir package/output;
+fi
+
+# Package
+tar --exclude-from=package/package-exclude -czf package/output/ntags.tar.gz *
