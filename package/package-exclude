@@ -3,3 +3,4 @@
 package
 translations/TRANSLATING
 *.sw?
+version

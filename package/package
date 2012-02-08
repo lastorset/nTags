@@ -7,5 +7,7 @@ then
 	mkdir package/output;
 fi
 
+VERSION=`cat ./version | sed -e "s/ /_/"`
+
 # Package
-tar --exclude-from=package/package-exclude -czf package/output/ntags.tar.gz *
+tar --exclude-from=package/package-exclude -czf package/output/ntags-${VERSION}.tar.gz *

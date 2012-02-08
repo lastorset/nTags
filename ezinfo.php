@@ -30,7 +30,7 @@ class nTagsInfo
     {
 
         return array( 'Name'      => '<a href="http://projects.ez.no/ntags">nTags</a>',
-                      'Version'   => '1.1-0',
+                      'Version'   => file_get_contents("./version"),
                       'Copyright' => 'Copyright (c) 2009-2010 Leif Arne Storset',
                       'License'   => 'GNU General Public License v2.0',
                       'Includes the following third-party software' => array( 'Name' => 'jQuery UI',
