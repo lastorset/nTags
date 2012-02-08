@@ -1,0 +1,2 @@
+cd ..
+tar --exclude-from=package/package-exclude -czf package/ntags.tar.gz *

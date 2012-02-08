@@ -1,0 +1,5 @@
+# Paths are relative to extension root
+.git
+package
+translations/TRANSLATING
+*.sw?
