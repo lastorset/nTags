@@ -48,7 +48,7 @@ onchange="toggleThese = $('#{$attr_id}_maintags'); if (this.checked) toggleThese
 	{/if}
 {/foreach}
 
-<h5>{"Free tags"|i18n("ntags/content/edit")}</h5>
+<h5>{"Free tags"|i18n("ntags/content/edit")} <span style="font-weight: normal">{"separated by commas"|i18n("ntags/content/edit")}</h5>
 <input id="{$attr_id}_free" class="box ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" onchange="nTags.edit.genAttribute('{$attr_id}_free', '{$attr_id}')" type="text" size="70" value="{$freeTags}"  />
 
 <input id="{$attr_id}" class="box ezcc-{$attribute.object.content_class.identifier} ezcca-{$attribute.object.content_class.identifier}_{$attribute.contentclass_attribute_identifier}" type="hidden" size="70" name="{$attribute_base}_ezkeyword_data_text_{$attribute.id}" value="{$attribute.content.keyword_string|wash(xhtml)}"  />

@@ -289,6 +289,10 @@
         <source>Free tags</source>
         <translation>Tilleggsstikkord</translation>
     </message>
+    <message>
+        <source>separated by commas</source>
+        <translation>skilde med komma</translation>
+    </message>
 </context>
 <context>
     <name>ntags/utils/taglist</name>

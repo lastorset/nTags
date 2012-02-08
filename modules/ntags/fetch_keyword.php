@@ -133,6 +133,7 @@ class nTagsFunctions
         }
 
         $sqlOwnerString = is_numeric( $owner ) ? "AND ezcontentobject.owner_id = '$owner'" : '';
+		/* DEBUG: why isn't this working? 
 		if ( is_numeric( $parentNodeID ))
 		{
 			if ( $includeSubtree )
@@ -148,6 +149,8 @@ class nTagsFunctions
 		{
 			$parentNodeIDString = '';
 		}
+		*/
+        $parentNodeIDString = is_numeric( $parentNodeID ) ? "AND ezcontentobject_tree.parent_node_id = '$parentNodeID'" : '';
 
         $sqlClassIDString = '';
         if ( is_array( $classIDArray ) and count( $classIDArray ) )
@@ -189,6 +192,7 @@ class nTagsFunctions
 
         $trans = eZCharTransform::instance();
 
+		$NodeArray = array();
         foreach ( $keyWords as $keywordArray )
         {
             $nodeID = $keywordArray['node_id'];
@@ -206,6 +210,7 @@ class nTagsFunctions
                                 $classid,
                                 $owner = false,
                                 $parentNodeID = false,
+	                            $includeSubtree = false,
                                 $includeDuplicates = true )
     {
 		if (!is_array( $alphabet ))
@@ -234,8 +239,6 @@ class nTagsFunctions
         $sqlPermissionChecking = eZContentObjectTreeNode::createPermissionCheckingSQL( $limitationList );
 
         $db = eZDB::instance();
-
-        $alphabet = $db->escapeString( $alphabet );
 
         $sqlOwnerString = is_numeric( $owner ) ? "AND ezcontentobject.owner_id = '$owner'" : '';
 		if ( is_numeric( $parentNodeID ))
@@ -269,6 +272,8 @@ class nTagsFunctions
 		$sqlMatching = "";
 		foreach ( $alphabets as $i => $alphabet )
 		{
+			$alphabet = $db->escapeString( $alphabet );
+
 			$sqlMatching .= "ezkeyword.keyword LIKE '$alphabet'";
 			if ( $i != count( $alphabets ) - 1 )
 			{
