@@ -1,4 +1,4 @@
-<?
+<?php
 $FunctionList = array();
 $FunctionList['keyword'] = array( 'name' => 'keyword',
                                'operation_types' => array( 'read' ),

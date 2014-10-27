@@ -1,4 +1,4 @@
-<?
+<?php
 // SOFTWARE NAME: nTags
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
